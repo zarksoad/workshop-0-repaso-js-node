@@ -3,24 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consumiendo API con JSONPlaceholder</title>
+    <title>Consumiendo API de Productos</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div id="app">
-        <h1>Listado de Posts</h1>
-        <button id="fetch-posts">Load date</button>
+        <h1>Listado de Productos</h1>
+        <button id="fetch-products">Cargar Productos</button>
+        <div>
+            <label for="precioMax">Precio</label>
+            <input id="price" placeholder="Enter to filter by price">
+        </div>
         <table>
-            <tbody id="tbody">
-                <td class="td">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Precio</th>
 
-                </td>
-            </tbody>
-
-
+                </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
         </table>
-        
     </div>
-    <script src="app.js"></script>
+    <script src="app.js" type="module"></script>
 </body>
 </html>
