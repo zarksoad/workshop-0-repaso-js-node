@@ -57,7 +57,9 @@ class TaskManager {
     loadTasks() {
         this.renderTasks();
         const tasks = JSON.parse(localStorage.getItem('tasks'));
-        this.tasks = tasks.map(task => new Task(task.id, task.description, task.completed));
+        if(this.tasks.length > 0){
+            this.tasks = tasks.map(task => new Task(task.id, task.description, task.completed));
+        }
         this.renderTasks();
     }
 
