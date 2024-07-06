@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise</title>
+</head>
+<body>
+    <div id="root">
+        <h1>Products</h1>
+        <input type="text" placeholder="Search by name" id="inputName">
+        <button id="name">Search By name</button>
+        <table>
+            <thead>     
+                <tr>
+                    <th>name</th>
+                    <th>
+                    <select id="category" title="Category">
+                        <option value="All">All</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Clothing">Clothing</option>
+                        <option value="Accessories">Accessories</option>
+                    </select>
+                    </th>
+                    <th>price</th>
+                    <th>stock</th>
+                </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+        </table>
+    </div>
+    <button id="total">Calcular total</button>
+    <label for="" id="totalLabel"></label>
+    <button id="available">check if every item is avalaible</button>
+    <label for="" id="availableLabel"></label>
+    <button id="listProducts">press  the button if you want to see all the productos name</button>
+    <table id="tableName" style="display: none;">
+        <thead>     
+            <tr>
+                <th>names</th>
+            </tr>
+        </thead>
+        <tbody id="tbodyName"></tbody>
+    </table>
+    
+</body>
+<script src="app.js"></script>
+</html>
