@@ -130,3 +130,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+// The commun mistakes were that the localStorage wasn't set correctly and edit  and mark tas wasn't finished correctly

@@ -66,12 +66,14 @@ class NoteManager {
             const p = document.createElement('p');
             p.textContent = note.description;
             item.appendChild(p);
+            // Checkbox for marking note as important
             const labelCheckBox = document.createElement('label');
             labelCheckBox.textContent = 'Mark as important';
             const checkBox = document.createElement('input');
             checkBox.type = 'checkbox';
             item.appendChild(labelCheckBox);
             item.appendChild(checkBox);
+            // Style adjustments based on note status
             item.className = note.status ? 'important' : '';
             if (item.className === 'important') {
                 p.style.color = 'green';
@@ -80,12 +82,12 @@ class NoteManager {
             } else {
                 p.style.color = '';
             }
-
+            // Event listener for checkbox click to toggle note status
             checkBox.addEventListener('click', (e) => {
                 e.stopPropagation();
                 this.toggleNoteComplete(note.id);
             });
-
+                        // Edit button to modify note description
             const editButton = document.createElement('button');
             editButton.textContent = 'EDIT';
             editButton.addEventListener('click', (e) => {
@@ -97,23 +99,25 @@ class NoteManager {
                 }
                 this.editNote(note.id, newDescriptionNote);
             });
-
+                        // Delete button to remove note
             const deleteButton = document.createElement('button');
             deleteButton.textContent = 'DELETE';
             deleteButton.addEventListener('click', (e) => {
                 e.stopPropagation();
                 this.deleteNote(note.id);
             });
-
+                        // Append buttons to the note item
             item.appendChild(editButton);
             item.appendChild(deleteButton);
+                        // Append note item to the list
             noteList.appendChild(item);
         });
     }
 }
-
+// Initialize NoteManager on DOMContentLoaded
 document.addEventListener('DOMContentLoaded', () => {
     const noteManager = new NoteManager();
+        // Event listener for adding a new note
     document.getElementById('add-note').addEventListener('click', () => {
         const newNote = document.getElementById('new-note').value;
         if (newNote) {

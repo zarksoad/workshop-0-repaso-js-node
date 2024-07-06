@@ -10,9 +10,10 @@ let products = [
     { id: 9, name: 'Sunglasses', category: 'Accessories', price: 30, stock: 35 }
 ];
 
-
+// Function to display products based on category
 const showProducts = (category) => {
     const $body = document.getElementById('tbody');
+    // Filtering products based on category or individual product name
     if(category !== 'Accessories' && category !== 'Clothing' && category !== 'Electronics' && category !== 'All'){
         let newProducts = products.filter(product => product.name === category)
         $body.innerHTML = ""
@@ -40,7 +41,7 @@ const showProducts = (category) => {
     });
   
     }
-    
+    // Display all products if 'All' is selected
     else{
         $body.innerHTML = ""
         products.forEach(element => {
@@ -58,21 +59,21 @@ const showProducts = (category) => {
     
 
 }
-
+// Event listener for category selection
 const $category = document.getElementById('category');
 $category.addEventListener('click', () =>{
     newProducts = showProducts($category.value)
 
 })
 
-
+// Event listener for calculating total price of products
 const $total = document.getElementById('total');
 $total.addEventListener('click', () =>{
         const $labelTotal = document.getElementById('totalLabel')
         const total = products.reduce((acumalator,valor )=> valor.price + acumalator,0)
         $labelTotal.textContent ='total price:'+ total
 })
-
+// Event listener for searching product by name
 const $name = document.getElementById('name')
 $name.addEventListener('click', ()=>{
     const $inputName = document.getElementById('inputName').value
@@ -85,12 +86,13 @@ $name.addEventListener('click', ()=>{
            showProducts(product.name)
         }
         else{
-           
+            alert("product not found")
+           // Handle case where product is not found
         }
     }
 
 })
-
+// Event listener for checking product availability
 const $available = document.getElementById('available')
 const $availableLabel = document.getElementById('availableLabel')
 $available.addEventListener('click', ()=>{
@@ -102,7 +104,7 @@ $available.addEventListener('click', ()=>{
         $availableLabel.textContent = 'Sorry, all product are not available'
     }
 })
-
+// Event listener for displaying product names in a list
 const $tableName = document.getElementById('tableName') 
 const $tbodyName = document.getElementById('tbodyName')
 const $listProducts = document.getElementById('listProducts')
@@ -115,6 +117,5 @@ $listProducts.addEventListener('click', ()=>{
         <td>${product}</td>
         `
     })
-
-   
+ 
 })
